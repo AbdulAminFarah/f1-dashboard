@@ -22,3 +22,13 @@ if st.sidebar.button("Load"):
         st.plotly_chart(fig1, use_container_width=True)
         st.plotly_chart(fig2, use_container_width=True)
 
+        # Get stint data and plot
+        stints1 = get_stints(session, driver1)
+        stints2 = get_stints(session, driver2)
+
+        fig3 = plot_stint_strategy(stints1, driver1, 'red')
+        fig4 = plot_stint_strategy(stints2, driver2, 'blue')
+
+        st.subheader(f"Tyre Strategy: {driver1} vs {driver2}")
+        st.plotly_chart(fig3, use_container_width=True)
+        st.plotly_chart(fig4, use_container_width=True)
