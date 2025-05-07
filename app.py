@@ -1,5 +1,5 @@
 import streamlit as st
-from src.data_loader import load_race_session, get_driver_laps
+from src.data_loader import load_race_session, get_driver_laps, get_stints
 from src.plot_utils import plot_lap_times
 
 st.set_page_config(page_title="F1 Analytics Dashboard", layout="wide")
