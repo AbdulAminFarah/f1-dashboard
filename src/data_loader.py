@@ -32,7 +32,6 @@ def get_stints(session, driver_code):
         lap = row['LapNumber']
 
         if compound != current_compound:
-            # End previous stint
             if current_compound is not None:
                 stints.append({
                     "Stint": len(stints) + 1,
@@ -40,11 +39,9 @@ def get_stints(session, driver_code):
                     "StartLap": start_lap,
                     "EndLap": lap - 1
                 })
-            # Start new stint
             current_compound = compound
             start_lap = lap
 
-    # Append the final stint
     if current_compound is not None:
         stints.append({
             "Stint": len(stints) + 1,
